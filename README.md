@@ -38,27 +38,3 @@ Add the study **twice** to a chart, each with its own opening range:
 | `compile.md` | Step-by-step build and install instructions. |
 | MotiveWave SDK jar(s) | Compile-time dependencies. |
 | `jdk-26.0.2.1+1/` | Local JDK used to compile. |
-
-## Build
-
-See [compile.md](compile.md). In short:
-
-```powershell
-javac --release 17 -encoding UTF-8 -cp "*" -d out OHLCFibExt.java
-jar --create --file OHLCFibExt.jar -C out .
-```
-
-Then copy `OHLCFibExt.jar` into MotiveWave's Extensions folder and restart.
-
-## Changes from the original OHLC
-
-- Renamed class, id and title.
-- Added the "Opening Range Fib Extensions" settings group, with dependencies and quick settings.
-- Added fib level calculation in `LineSet.layout`, drawing in `draw`, and hit-testing in `contains`.
-- Bar and tick calculators and DOM notes are unchanged.
-
-## Status and caveats
-
-- Not yet verified against the MotiveWave SDK by a compile in the authoring environment; compile errors may need small fixes (see the troubleshooting table in `compile.md`).
-- `DataContextImpl` and `DOMNote` come from MotiveWave internals, so they may not be in the public SDK jar.
-- Fib levels are not added to DOM notes.
